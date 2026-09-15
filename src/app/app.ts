@@ -11,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected title = 'Assignment1Test'
 
-name = 'Matteo';
+fullName = 'Matteo Setosta';
   studentId = 'W0886068';
   city = 'Tecumseh';
 }
