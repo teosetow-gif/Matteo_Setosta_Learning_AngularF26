@@ -8,10 +8,3 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {
-  protected title = 'Assignment1Test'
-
-fullName = 'Matteo Setosta';
-  studentId = 'W0886068';
-  city = 'Tecumseh';
-}
