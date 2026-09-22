@@ -9,16 +9,26 @@
 
 
 
-<main class="main">
-  <h2>{{ title }}</h2>
+<div class="container">
+  <h2> Tv Show List</h2>
 
-  <div>
-    <p>{{ fullName }}</p>
-  <p>{{ studentId }}</p>
-  <p>{{ city }}</p>
+  @for (show of showList; track show.id) {
+  <div class="show-card">
+    <h3>{{show.name}}</h3>
+    <p>{{show.genre}}</p>
+    <p>Rating: {{show.rating}}</p>
+    <p>Status: {{show.status}}</p>
+    @if (show.summary) {
+    <p class="summary">{{show.summary}}</p>
+    }
+
+    <button class="toggle-button" (click)="toggleStatus(show)"> Toggle Status</button>
   </div>
 
-</main>
+  }@empty {
+  <p>No shows to display yet.</p>
+  }
+</div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
