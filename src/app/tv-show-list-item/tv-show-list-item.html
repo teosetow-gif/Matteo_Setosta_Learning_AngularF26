@@ -1,1 +1,23 @@
-<p>tv-show-list-item works!</p>
+<div class="show-card">
+  <h3>{{ item().name }}</h3>
+  <p>Genre: {{ item().genre }} </p>
+  <p>Rating: {{ item().rating }} </p>
+
+  @switch (item().status) {
+  @case ('Running') {
+  <span class="badge badge-running">Running</span>
+  }
+  @case ('Ended') {
+  <span class="badge badge-ended">Ended</span>
+  }
+  @default {
+  <span class="badge badge-unknown">Unknown</span>}
+  }
+
+  @if (item().summary) {
+  <p class="summary">{{ item().summary }}</p>
+  } @else {
+    <p class="summary-empty"> No summary available.</p>
+  }
+
+</div>

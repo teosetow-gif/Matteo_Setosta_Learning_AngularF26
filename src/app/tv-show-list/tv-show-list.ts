@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {TvShow} from '../shared/models/tv-show';
-import {TVShowListItem} from '../tv-show-list-item/tv-show-list-item';
+import {TvShow} from '../shared/models/tvShow';
+import {TvShowListItem} from '../tv-show-list-item/tv-show-list-item';
 
 @Component({
   imports: [TvShowListItem],

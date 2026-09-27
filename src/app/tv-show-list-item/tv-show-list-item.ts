@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {TvShow} from '../shared/models/tv-show';
+import { Component, input } from '@angular/core';
+import {TvShow} from '../shared/models/tvShow';
 
 @Component({
   imports: [],
