@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TvShow} from '../shared/models/tv-show';
 
 @Component({
   imports: [],
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './tv-show-list-item.css',
   templateUrl: './tv-show-list-item.html',
 })
-export class TvShowListItem {}
+export class TvShowListItem {
+  item = input.required<TvShow>();
+
+
+  }

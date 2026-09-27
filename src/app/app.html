@@ -1,42 +1,5 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-
-<div class="container">
-  <h2> Tv Show List</h2>
-
-  @for (show of showList; track show.id) {
-  <div class="show-card">
-    <h3>{{show.name}}</h3>
-    <p>{{show.genre}}</p>
-    <p>Rating: {{show.rating}}</p>
-    <p>Status: {{show.status}}</p>
-    @if (show.summary) {
-    <p class="summary">{{show.summary}}</p>
-    }
-
-    <button class="toggle-button" (click)="toggleStatus(show)"> Toggle Status</button>
-  </div>
-
-  }@empty {
-  <p>No shows to display yet.</p>
-  }
-</div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<app-tv-show-list></app-tv-show-list>
 
 <router-outlet />
