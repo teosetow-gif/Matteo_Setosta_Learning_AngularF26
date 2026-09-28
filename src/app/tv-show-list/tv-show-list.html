@@ -2,7 +2,7 @@
   <h2>TV Show Tracker</h2>
 
   @for (show of showList; track show.id) {
-  <app-tv-show-list-item [item] = "show" />
+  <app-tv-show-list-item [item] = "show" (opened)="onShowOpened($event)" />
   } @empty {
   <p> No shows to display currently.</p>
   }

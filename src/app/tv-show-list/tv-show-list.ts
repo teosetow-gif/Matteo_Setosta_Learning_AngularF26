@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
 import {TvShowListItem} from '../tv-show-list-item/tv-show-list-item';
+import {ContentEvent} from '../shared/models/content-event';
 
 @Component({
   imports: [TvShowListItem],
@@ -19,4 +20,12 @@ export class TvShowList {
     {id: 6, name: 'Friends', genre: 'sitcom', status: 'Ended', rating: 9.0}
     ];
 
+protected openedIds: number[] = [];
+
+  onShowOpened(event: ContentEvent): void {
+      console.log(`Show ${event.id} was ${event.action}`);
+      if (event.action === 'opened' && !this.openedIds.includes(event.id)) {
+        this.openedIds.push(event.id);
+        }
+      }
   }
