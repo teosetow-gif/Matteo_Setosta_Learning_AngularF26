@@ -1,4 +1,4 @@
-import {Service, signal} from '@angular/core';
+import {computed, effect, Service, signal} from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
 
 @Service()
@@ -14,4 +14,18 @@ export class TvShowService {
 
   ]);
 showList = this.shows.asReadonly();
+
+  addShow(newShow: TvShow) {
+    this.shows.update(list => [...list, newShow])
+  }
+runningShows = computed(()=>
+  this.shows().filter(s => s.status === 'Running')
+);
+
+constructor() {
+  effect(() => {
+    console.log('Tv show count is now', this.shows().length);
+  });
+}
+
 }

@@ -6,4 +6,11 @@
   } @empty {
   <p> No shows to display currently.</p>
   }
+
+  <h2>Currently Running</h2>
+  @for (show of running(); track show.id) {
+    <p>{{ show.name }}</p>
+  } @empty {
+    <p>No shows currently running.</p>
+  }
 </div>

@@ -15,6 +15,9 @@ export class TvShowList {
 
  shows = this.tvShowService.showList;
 
+ running = this.tvShowService.runningShows;
+
+
 protected openedIds: number[] = [];
 
   onShowOpened(event: TvShowEvent): void {
@@ -23,4 +26,6 @@ protected openedIds: number[] = [];
         this.openedIds.push(event.id);
         }
       }
-  }
+
+  protected readonly status = status;
+}
