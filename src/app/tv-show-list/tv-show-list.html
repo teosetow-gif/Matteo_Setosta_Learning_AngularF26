@@ -1,8 +1,8 @@
 <div class='list-container'>
   <h2>TV Show Tracker</h2>
-
+<p>{{ summmary() }}</p>
   @for (show of shows(); track show.id) {
-  <app-tv-show-list-item [item] = "show" (opened)="onShowOpened($event)" />
+  <app-tv-show-list-item [item] = "show" (opened)="onShowOpened($event)" (remove)="onRemove($event)" />
   } @empty {
   <p> No shows to display currently.</p>
   }

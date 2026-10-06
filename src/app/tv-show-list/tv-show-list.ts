@@ -14,9 +14,8 @@ export class TvShowList {
  private tvShowService = inject(TvShowService);
 
  shows = this.tvShowService.showList;
-
  running = this.tvShowService.runningShows;
-
+summmary = this.tvShowService.runningSummary;
 
 protected openedIds: number[] = [];
 
@@ -28,4 +27,8 @@ protected openedIds: number[] = [];
       }
 
   protected readonly status = status;
+
+  onRemove(id: number): void {
+    this.tvShowService.removeShow(id);
+};
 }

@@ -11,7 +11,11 @@ import {TvShowEvent} from '../shared/models/tvShowEvent';
 export class TvShowListItem {
   item = input.required<TvShow>();
   opened = output<TvShowEvent>();
+  remove = output<number>();
 
+  onRemoveClick() {
+    this.remove.emit(this.item().id);
+  }
   toggle(): void {
     this.opened.emit({id: this.item().id, action: 'opened'});
     }

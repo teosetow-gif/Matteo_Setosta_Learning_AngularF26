@@ -22,10 +22,16 @@ runningShows = computed(()=>
   this.shows().filter(s => s.status === 'Running')
 );
 
+  runningSummary = computed(() => `${this.runningShows().length} shows currently running`);
+
 constructor() {
   effect(() => {
     console.log('Tv show count is now', this.shows().length);
   });
+}
+
+removeShow(id: number) {
+  this.shows.update(list => list.filter(s =>s .id !== id));
 }
 
 }
