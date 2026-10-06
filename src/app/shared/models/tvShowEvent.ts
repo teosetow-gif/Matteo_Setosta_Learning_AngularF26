@@ -1,4 +1,4 @@
-export interface ContentEvent {
+export interface TvShowEvent {
   id: number
   action: 'opened' | 'favourited';
   }

@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
-import {ContentEvent} from '../shared/models/content-event';
+import {TvShowEvent} from '../shared/models/tvShowEvent';
 
 @Component({
   imports: [],
@@ -10,7 +10,7 @@ import {ContentEvent} from '../shared/models/content-event';
 })
 export class TvShowListItem {
   item = input.required<TvShow>();
-  opened = output<ContentEvent>();
+  opened = output<TvShowEvent>();
 
   toggle(): void {
     this.opened.emit({id: this.item().id, action: 'opened'});
