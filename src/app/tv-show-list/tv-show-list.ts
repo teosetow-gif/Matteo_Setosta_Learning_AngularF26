@@ -30,4 +30,6 @@ protected openedIds: number[] = [];
   onRemove(id: number): void {
     this.tvShowService.removeShow(id);
 };
+
+  dataSourceUrl = this.tvShowService.dataSourceUrl;
 }

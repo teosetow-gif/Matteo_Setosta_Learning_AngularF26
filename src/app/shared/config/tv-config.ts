@@ -5,4 +5,4 @@ export interface tvConfig {
   defaultCategory: string;
 }
 
-export const TV_CONFIG = new InjectionToken<TvConfig>('tv.config');
+export const TV_CONFIG = new InjectionToken<tvConfig>('tv.config');

@@ -1,5 +1,6 @@
-import {computed, effect, Service, signal} from '@angular/core';
+import {computed, effect, inject, Service, signal} from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
+import {TV_CONFIG} from '../shared/config/tv-config';
 
 @Service()
 export class TvShowService {
@@ -33,5 +34,9 @@ constructor() {
 removeShow(id: number) {
   this.shows.update(list => list.filter(s =>s .id !== id));
 }
+
+  private config = inject(TV_CONFIG);
+  readonly dataSourceUrl = this.config.apiBaseUrl;
+
 
 }
