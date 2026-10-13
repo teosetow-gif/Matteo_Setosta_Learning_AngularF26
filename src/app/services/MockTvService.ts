@@ -1,0 +1,43 @@
+import {computed, effect, inject, Injectable, signal} from '@angular/core';
+import {TvShow} from '../shared/models/tvShow';
+import {TV_CONFIG} from '../shared/config/tv-config';
+
+@Injectable()
+export class MockTvService {
+
+
+  private shows = signal<TvShow[]>([
+    {id: 1, name: '[MOCK]Breaking Bad', genre: 'Crime', status:'Ended', rating: 9.5, summary: 'A chemistry teacher turns to making drugs'},
+    {id: 2, name: '[MOCK]The Bear', genre: 'Drama', status:'Running', rating: 8.6, },
+    {id: 3, name: '[MOCK]The Office', genre: 'Comedy', status: 'Ended', rating: 9.0},
+    {id: 4, name: '[MOCK]Family guy', genre: 'Comedy', status:'Running', rating: 9.0},
+    {id: 5, name: '[MOCK]Suits', genre: 'Legal Drama', status: 'Ended', rating: 9.0, summary: 'A man with best memory becomes lawyer without going to law school.'},
+    {id: 6, name: '[MOCK]Friends', genre: 'sitcom', status: 'Ended', rating: 9.0}
+
+  ]);
+showList = this.shows.asReadonly();
+
+  addShow(newShow: TvShow) {
+    this.shows.update(list => [...list, newShow])
+  }
+runningShows = computed(()=>
+  this.shows().filter(s => s.status === 'Running')
+);
+
+  runningSummary = computed(() => `[MOCK] ${this.runningShows().length} shows currently running`);
+
+constructor() {
+  effect(() => {
+    console.log('Tv show count is now', this.shows().length);
+  });
+}
+
+removeShow(id: number) {
+  this.shows.update(list => list.filter(s =>s .id !== id));
+}
+
+  private config = inject(TV_CONFIG);
+  readonly dataSourceUrl = this.config.apiBaseUrl;
+
+
+}

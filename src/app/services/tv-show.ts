@@ -1,9 +1,10 @@
-import {computed, effect, inject, Service, signal} from '@angular/core';
+import {computed, effect, inject, Injectable, signal} from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
 import {TV_CONFIG} from '../shared/config/tv-config';
 
-@Service()
+@Injectable({ providedIn: 'root'})
 export class TvShowService {
+
 
   private shows = signal<TvShow[]>([
     {id: 1, name: 'Breaking Bad', genre: 'Crime', status:'Ended', rating: 9.5, summary: 'A chemistry teacher turns to making drugs'},
