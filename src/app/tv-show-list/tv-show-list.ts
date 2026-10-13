@@ -26,7 +26,6 @@ protected openedIds: number[] = [];
         }
       }
 
-  protected readonly status = status;
 
   onRemove(id: number): void {
     this.tvShowService.removeShow(id);
