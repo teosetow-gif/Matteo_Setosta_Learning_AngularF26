@@ -1,0 +1,8 @@
+@if (show()) {
+  <h2>{{ show()?.name }}</h2>
+  <p> Genre: {{ show()?.genre }}</p>
+  <p> Status: {{ show()?.status }}</p>
+  <p> Rating: {{ show()?.rating }}</p>
+
+}
+<a routerLink="/shows">Back to list</a>

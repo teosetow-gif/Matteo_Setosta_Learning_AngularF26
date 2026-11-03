@@ -15,7 +15,7 @@ export class TvShowList {
 
  shows = this.tvShowService.showList;
  running = this.tvShowService.runningShows;
-summmary = this.tvShowService.runningSummary;
+summary = this.tvShowService.runningSummary;
 
 protected openedIds: number[] = [];
 

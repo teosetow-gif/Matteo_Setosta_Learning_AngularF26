@@ -1,9 +1,10 @@
 import { Component, input, output } from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
 import {TvShowEvent} from '../shared/models/tvShowEvent';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-tv-show-list-item',
   styleUrl: './tv-show-list-item.css',
   templateUrl: './tv-show-list-item.html',

@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {TvShow} from './shared/models/tvShow';
-import {TvShowList} from './tv-show-list/tv-show-list';
+
 
 @Component({
-  imports: [RouterOutlet, TvShowList],
+  imports: [RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
