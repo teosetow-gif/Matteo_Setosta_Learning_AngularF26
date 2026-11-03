@@ -1,8 +1,10 @@
 import {Component, computed, effect, inject, input} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule, ValidatorFn, Validators} from '@angular/forms';
 import {TvShowService} from '../services/tv-show';
 import {TvShow} from '../shared/models/tvShow';
 import {Router} from '@angular/router';
+import {notBlank} from '../shared/validators/not-blank';
+import {summaryNotName} from '../shared/validators/summary-not-name';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -21,12 +23,12 @@ export class TvShowForm {
   isEditMode = computed(() => this.id() !== undefined);
 
   showForm = this.fb.nonNullable.group({
-    name: ['', [Validators.required, Validators.minLength(2)]],
+    name: ['', [Validators.required, Validators.minLength(2), notBlank as ValidatorFn]],
     genre: ['', Validators.required],
     status: ['Running' as TvShow['status']],
     rating: [0],
     summary: [''],
-  });
+  }, { validators: summaryNotName as ValidatorFn });
 
   constructor() {
     effect(() => {
