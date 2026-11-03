@@ -19,6 +19,6 @@ export const appConfig: ApplicationConfig = {
     /**to change back to the real data from [MOCK] Data, all you need to do is either fully
      * remove the UseClass provider or comment it out and it will switch  back to the real data
      */
-    {provide: TvShowService, useClass: MockTvService },
+   {provide: TvShowService, useClass: MockTvService },
 ],
 };
