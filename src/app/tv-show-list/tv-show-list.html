@@ -1,5 +1,6 @@
 <div class='list-container'>
   <h2>TV Show Tracker</h2>
+  <a routerLink="/shows/new">Add Show</a>
 <p>{{ summary() }}</p>
   @for (show of shows(); track show.id) {
   <app-tv-show-list-item [item] = "show" (opened)="onShowOpened($event)" (remove)="onRemove($event)" />

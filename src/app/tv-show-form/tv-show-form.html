@@ -1,0 +1,23 @@
+<h2> Add Show </h2>
+<form [formGroup]="showForm" (ngSubmit)="onSubmit()">
+
+  <input formControlName="name" placeholder="Name"/>
+  @if (showForm.controls.name.touched && showForm.controls.name.hasError('required')) {
+    <p class="error">Name must be at least 2 characters long.</p>
+  }
+
+  <input formControlName="genre" placeholder="Genre"/>
+  @if (showForm.controls.genre.touched && showForm.controls.genre.hasError('required')) {
+    <p class="error">Genre is required</p>
+  }
+
+  <select formControlName="status">
+    <option value="Running">Running</option>
+    <option value="Ended">Ended</option>
+  </select>
+
+  <input type="number" formControlName="rating" placeholder="Rating" />
+  <input formControlName="summary" placeholder="Summary" />
+
+  <button type="submit" [disabled]="showForm.invalid">Add Show</button>
+</form>

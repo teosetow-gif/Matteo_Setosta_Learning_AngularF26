@@ -3,9 +3,10 @@ import {TvShow} from '../shared/models/tvShow';
 import {TvShowListItem} from '../tv-show-list-item/tv-show-list-item';
 import {TvShowEvent} from '../shared/models/tvShowEvent';
 import {TvShowService} from '../services/tv-show';
+import {RouterLink} from '@angular/router';
 
 @Component({
-  imports: [TvShowListItem],
+  imports: [TvShowListItem, RouterLink],
   selector: 'app-tv-show-list',
   styleUrl: './tv-show-list.css',
   templateUrl: './tv-show-list.html',
