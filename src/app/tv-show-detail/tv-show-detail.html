@@ -4,5 +4,6 @@
   <p> Status: {{ show()?.status }}</p>
   <p> Rating: {{ show()?.rating }}</p>
 
+  <a [routerLink]="['/shows/edit', show()?.id]">Edit </a>
 }
 <a routerLink="/shows">Back to list</a>

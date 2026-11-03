@@ -36,6 +36,10 @@ removeShow(id: number) {
   this.shows.update(list => list.filter(s =>s .id !== id));
 }
 
+updateShow(updated: TvShow) {
+  this.shows.update(list => list.map(s => s.id === updated.id ? updated: s));
+}
+
   private config = inject(TV_CONFIG);
   readonly dataSourceUrl = this.config.apiBaseUrl;
 

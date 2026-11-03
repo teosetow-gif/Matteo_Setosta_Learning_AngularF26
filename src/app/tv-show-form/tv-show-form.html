@@ -1,8 +1,12 @@
-<h2> Add Show </h2>
+<h2>{{ isEditMode() ? 'Edit Show' : 'Add Show' }}</h2>
 <form [formGroup]="showForm" (ngSubmit)="onSubmit()">
 
   <input formControlName="name" placeholder="Name"/>
   @if (showForm.controls.name.touched && showForm.controls.name.hasError('required')) {
+    <p class="error">Name is required.</p>
+  }
+
+  @if (showForm.controls.name.touched && showForm.controls.name.hasError('minlength')) {
     <p class="error">Name must be at least 2 characters long.</p>
   }
 
@@ -19,5 +23,7 @@
   <input type="number" formControlName="rating" placeholder="Rating" />
   <input formControlName="summary" placeholder="Summary" />
 
-  <button type="submit" [disabled]="showForm.invalid">Add Show</button>
+  <button type="submit" [disabled]="showForm.invalid">
+    {{ isEditMode() ? 'Edit Show' : 'Add Show' }}
+  </button>
 </form>

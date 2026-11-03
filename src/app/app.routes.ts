@@ -7,6 +7,7 @@ export const routes: Routes = [
   {path: '', redirectTo: 'shows', pathMatch: 'full'},
   {path: 'shows', component: TvShowList},
   {path: 'shows/new', component: TvShowForm},
+  {path: 'shows/edit/:id', component: TvShowForm},
   {path: 'shows/:id', component: TvShowDetail},
 
 ];
