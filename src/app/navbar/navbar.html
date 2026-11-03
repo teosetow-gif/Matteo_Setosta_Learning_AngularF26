@@ -1,0 +1,7 @@
+<nav>
+<a routerLink="/shows"> Shows |</a>
+  <a routerLink="/shows/new"> Add Show |</a>
+  <button type="button" (click)="editGuard.toggle()">
+    {{ editGuard.guardEnabled() ? ' Unlock Editing ' : ' Lock Editing '}}
+  </button>
+</nav>
