@@ -68,3 +68,8 @@ Example Request: https://api.tvmaze.com/search/shows?q=girls
 I used 'HttpClient'(Option A). My service already had the shows in a writable signal,
 so i set the API response into that signal when it arrives. The signal 'isLoading' and
 'error' drive the loading and error states on the list page.
+
+### Why changes disappear on refresh
+All edits, deletes, and added shows only change the in memory signal. The changes are never
+sent to the API or saved in the browser, so it is all local. Refreshing the page just clears 
+them and all the data is back to the APIs data.

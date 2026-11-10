@@ -51,7 +51,7 @@ export class TvShowForm {
     if (this.showForm.invalid) return;
 
     const formValue = this.showForm.getRawValue();
-    const id = this.isEditMode() ? Number(this.id()) : this.tvShowService.nextId();
+    const id = this.isEditMode() ? Number(this.id()) : Date.now();
 
     const show: TvShow = {
       id,
