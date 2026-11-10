@@ -57,3 +57,9 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## API
+This loads TV shows from the Tvmaze API
+
+Documentation: https://www.tvmaze.com/api
+Example Request: https://api.tvmaze.com/search/shows?q=girls

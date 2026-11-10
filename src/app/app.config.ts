@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
 {
   provide: TV_CONFIG,
   useValue: {
-    apiBaseUrl: 'https://placeholder.example.com/api',
+    apiBaseUrl: 'https://api.tvmaze.com',
       defaultGenre: 'all',
   },
 },
