@@ -7,12 +7,12 @@ export class MockTvService {
 
 
   private shows = signal<TvShow[]>([
-    {id: 1, name: '[MOCK]Breaking Bad', genre: 'Crime', status:'Ended', rating: 9.5, summary: 'A chemistry teacher turns to making drugs'},
-    {id: 2, name: '[MOCK]The Bear', genre: 'Drama', status:'Running', rating: 8.6, },
-    {id: 3, name: '[MOCK]The Office', genre: 'Comedy', status: 'Ended', rating: 9.0},
-    {id: 4, name: '[MOCK]Family guy', genre: 'Comedy', status:'Running', rating: 9.0},
-    {id: 5, name: '[MOCK]Suits', genre: 'Legal Drama', status: 'Ended', rating: 9.0, summary: 'A man with best memory becomes lawyer without going to law school.'},
-    {id: 6, name: '[MOCK]Friends', genre: 'sitcom', status: 'Ended', rating: 9.0}
+    {id: 1, name: '[MOCK]Breaking Bad', genres: ['Crime'], status:'Ended', rating: {average: 9.5}, summary: 'A chemistry teacher turns to making drugs'},
+    {id: 2, name: '[MOCK]The Bear', genres: ['Drama'], status:'Running', rating: {average: 8.5}, },
+    {id: 3, name: '[MOCK]The Office', genres: ['Comedy'], status: 'Ended', rating: {average: 9.5}},
+    {id: 4, name: '[MOCK]Family guy', genres: ['Comedy'], status:'Running', rating: {average: 9.0}},
+    {id: 5, name: '[MOCK]Suits', genres: ['Legal Drama'], status: 'Ended', rating: {average: 9.0}, summary: 'A man with best memory becomes lawyer without going to law school.'},
+    {id: 6, name: '[MOCK]Friends', genres: ['sitcom'], status: 'Ended', rating: {average: 9.0}}
 
   ]);
 showList = this.shows.asReadonly();

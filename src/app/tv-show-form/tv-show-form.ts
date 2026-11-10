@@ -36,7 +36,13 @@ export class TvShowForm {
       if (id === undefined) return;
       const show = this.tvShowService.showList().find(s => s.id === Number(id));
       if (show) {
-        this.showForm.patchValue({ ...show, summary: show.summary ?? '' });
+        this.showForm.patchValue({
+          name: show.name,
+          genre: show.genres.length > 0 ? show.genres[0] : '',
+          status: show.status,
+          rating: show.rating.average === null ? 0 : show.rating.average,
+          summary: show.summary == null ? '' : show.summary,
+        });
       }
     });
   }
@@ -47,10 +53,19 @@ export class TvShowForm {
     const formValue = this.showForm.getRawValue();
     const id = this.isEditMode() ? Number(this.id()) : this.tvShowService.nextId();
 
+    const show: TvShow = {
+      id,
+        name: formValue.name,
+        genres: [formValue.genre],
+        status: formValue.status,
+        rating: { average: formValue.rating},
+        summary: formValue.summary,
+    };
+
     if (this.isEditMode()) {
-      this.tvShowService.updateShow({ id, ...formValue });
+      this.tvShowService.updateShow(show);
     } else {
-      this.tvShowService.addShow({ id, ...formValue});
+      this.tvShowService.addShow(show);
     }
 
     this.showForm.reset();

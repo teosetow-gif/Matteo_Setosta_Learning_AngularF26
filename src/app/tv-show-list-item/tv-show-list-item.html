@@ -1,7 +1,12 @@
 <div class="show-card" (click)="toggle()">
   <h3><a [routerLink]="['/shows', item().id]">{{ item().name }}</a> </h3>
-  <p>Genre: {{ item().genre }} </p>
-  <p>Rating: {{ item().rating }} </p>
+  <p>Genre:
+    @for (g of item().genres; track g) {
+      <span> {{ g }} </span>
+    }
+  </p>
+
+  <p>Rating: {{ item().rating.average }} </p>
 
   @switch (item().status) {
   @case ('Running') {
