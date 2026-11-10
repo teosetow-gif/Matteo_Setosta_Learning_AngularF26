@@ -20,6 +20,9 @@ showList = this.shows.asReadonly();
   addShow(newShow: TvShow) {
     this.shows.update(list => [...list, newShow])
   }
+  nextId(): number {
+    return Math.max(0, ...this.shows().map(s=> s.id)) + 1;
+  }
 runningShows = computed(()=>
   this.shows().filter(s => s.status === 'Running')
 );

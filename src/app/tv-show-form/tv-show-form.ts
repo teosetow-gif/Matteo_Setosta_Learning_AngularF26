@@ -23,12 +23,12 @@ export class TvShowForm {
   isEditMode = computed(() => this.id() !== undefined);
 
   showForm = this.fb.nonNullable.group({
-    name: ['', [Validators.required, Validators.minLength(2), notBlank as ValidatorFn]],
+    name: ['', [Validators.required, Validators.minLength(2), notBlank ]],
     genre: ['', Validators.required],
     status: ['Running' as TvShow['status']],
     rating: [0],
     summary: [''],
-  }, { validators: summaryNotName as ValidatorFn });
+  }, { validators: summaryNotName  });
 
   constructor() {
     effect(() => {
@@ -45,7 +45,7 @@ export class TvShowForm {
     if (this.showForm.invalid) return;
 
     const formValue = this.showForm.getRawValue();
-    const id = this.isEditMode() ? Number(this.id()) : Date.now();
+    const id = this.isEditMode() ? Number(this.id()) : this.tvShowService.nextId();
 
     if (this.isEditMode()) {
       this.tvShowService.updateShow({ id, ...formValue });
