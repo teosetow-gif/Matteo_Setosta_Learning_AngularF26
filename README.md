@@ -63,3 +63,8 @@ This loads TV shows from the Tvmaze API
 
 Documentation: https://www.tvmaze.com/api
 Example Request: https://api.tvmaze.com/search/shows?q=girls
+
+### Which Option I used
+I used 'HttpClient'(Option A). My service already had the shows in a writable signal,
+so i set the API response into that signal when it arrives. The signal 'isLoading' and
+'error' drive the loading and error states on the list page.

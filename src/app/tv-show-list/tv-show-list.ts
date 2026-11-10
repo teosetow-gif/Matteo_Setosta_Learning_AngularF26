@@ -17,6 +17,9 @@ export class TvShowList {
  shows = this.tvShowService.showList;
  running = this.tvShowService.runningShows;
 summary = this.tvShowService.runningSummary;
+isLoading = this.tvShowService.isLoading;
+error = this.tvShowService.error;
+dataSourceUrl = this.tvShowService.dataSourceUrl;
 
 protected openedIds: number[] = [];
 
@@ -32,5 +35,5 @@ protected openedIds: number[] = [];
     this.tvShowService.removeShow(id);
 };
 
-  dataSourceUrl = this.tvShowService.dataSourceUrl;
+
 }
