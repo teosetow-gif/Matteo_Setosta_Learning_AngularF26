@@ -99,3 +99,10 @@ chunk-5UORZZW7.js   | tv-show-detail |   1.50 kB |               765 bytes
 What Changed and Why?
 I Changed the routes to loadComponets with import() so they each have their own chunk to load once.
 The list page stays eager becuse it is the landing page and the user needs it immediately on load.
+
+## Lifecycle
+The page threw an error. The constructor runs when the class is created, before Angular se the inputs, 'id'
+is a required input, so it has no value yet. By ngOnInit the first input values are in place, so the same line works.
+
+Clicking away from the detail page is what causes ngOnDestroy to run. It shows the router remove the page's component
+when you leave the route, and creates a new one the next time you visit it.
