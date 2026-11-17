@@ -73,3 +73,29 @@ so i set the API response into that signal when it arrives. The signal 'isLoadin
 All edits, deletes, and added shows only change the in memory signal. The changes are never
 sent to the API or saved in the browser, so it is all local. Refreshing the page just clears 
 them and all the data is back to the APIs data.
+
+## Lazy Loading
+Before:
+
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-6LG47Z62.js    | main          | 321.67 kB |                84.92 kB
+styles-5INURTSO.css | styles        |   0 bytes |                 0 bytes
+
+                    | Initial total | 321.67 kB |                84.92 kB
+After:
+
+Initial chunk files | Names          |  Raw size | Estimated transfer size
+chunk-CBLVRBQS.js   | -              | 261.76 kB |                72.19 kB
+main-DE5A7F27.js    | main           |  11.37 kB |                 3.37 kB
+chunk-RY73VL36.js   | -              | 544 bytes |               544 bytes
+styles-5INURTSO.css | styles         |   0 bytes |                 0 bytes
+
+                    | Initial total  | 273.67 kB |                76.10 kB
+
+Lazy chunk files    | Names          |  Raw size | Estimated transfer size
+chunk-7ZSJNDXY.js   | tv-show-form   |  48.23 kB |                10.65 kB
+chunk-5UORZZW7.js   | tv-show-detail |   1.50 kB |               765 bytes
+
+What Changed and Why?
+I Changed the routes to loadComponets with import() so they each have their own chunk to load once.
+The list page stays eager becuse it is the landing page and the user needs it immediately on load.

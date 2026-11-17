@@ -7,8 +7,11 @@ import {editGuard} from './guards/edit-guard';
 export const routes: Routes = [
   {path: '', redirectTo: 'shows', pathMatch: 'full'},
   {path: 'shows', component: TvShowList},
-  {path: 'shows/new', component: TvShowForm},
-  {path: 'shows/edit/:id', component: TvShowForm, canActivate: [editGuard]},
-  {path: 'shows/:id', component: TvShowDetail},
+
+  {path: 'shows/new', loadComponent: () => import('./tv-show-form/tv-show-form').then(m => m.TvShowForm)},
+
+  {path: 'shows/edit/:id', loadComponent: () => import('./tv-show-form/tv-show-form').then(m => m.TvShowForm), canActivate: [editGuard]},
+
+  {path: 'shows/:id', loadComponent: () => import('./tv-show-detail/tv-show-detail').then(m => m.TvShowDetail)},
 
 ];
