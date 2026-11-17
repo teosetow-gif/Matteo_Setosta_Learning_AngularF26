@@ -1,11 +1,10 @@
 import {Component, computed, inject, input} from '@angular/core';
 import {TvShowService} from '../services/tv-show';
 import {RouterLink} from '@angular/router';
+import {DecimalPipe, UpperCasePipe} from '@angular/common';
 
 @Component({
-  imports: [
-    RouterLink
-  ],
+  imports: [RouterLink, DecimalPipe, UpperCasePipe],
   selector: 'app-tv-show-detail',
   styleUrl: './tv-show-detail.css',
   templateUrl: './tv-show-detail.html',

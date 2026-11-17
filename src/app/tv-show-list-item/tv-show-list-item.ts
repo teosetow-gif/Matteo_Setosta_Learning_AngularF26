@@ -2,9 +2,10 @@ import { Component, input, output } from '@angular/core';
 import {TvShow} from '../shared/models/tvShow';
 import {TvShowEvent} from '../shared/models/tvShowEvent';
 import {RouterLink} from '@angular/router';
+import {DecimalPipe, SlicePipe, UpperCasePipe} from '@angular/common';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, DecimalPipe, SlicePipe, UpperCasePipe],
   selector: 'app-tv-show-list-item',
   styleUrl: './tv-show-list-item.css',
   templateUrl: './tv-show-list-item.html',

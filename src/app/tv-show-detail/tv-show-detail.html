@@ -6,7 +6,9 @@
   }
     </p>
   <p> Status: {{ s.status }}</p>
-  <p> Rating: {{ s.rating.average }}</p>
+  @if ( s.rating.average !== null){}
+  <p> Rating: {{ s.rating.average | number:'1.1-1'}}</p>
+}
   @if (s.summary) {
     <p>{{ s.summary }}</p>
   }

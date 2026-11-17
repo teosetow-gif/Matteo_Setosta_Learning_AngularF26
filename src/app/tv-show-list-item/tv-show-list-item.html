@@ -1,22 +1,24 @@
 <div class="show-card" (click)="toggle()">
   <h3><a [routerLink]="['/shows', item().id]">{{ item().name }}</a> </h3>
   <p>Genre:
-    @for (g of item().genres; track g) {
+    @for (g of item().genres | slice:0:3; track g) {
       <span> {{ g }} </span>
     }
   </p>
 
-  <p>Rating: {{ item().rating.average }} </p>
+  @if (item().rating.average !== null) {
+  <p>Rating: {{ item().rating.average | number:'1.1-1' }} </p>
+  }
 
   @switch (item().status) {
   @case ('Running') {
-  <span class="badge badge-running">Running</span>
+  <span class="badge badge-running">{{ item().status | uppercase }}</span>
   }
   @case ('Ended') {
-  <span class="badge badge-ended">Ended</span>
+  <span class="badge badge-ended">{{ item().status | uppercase }}</span>
   }
   @default {
-  <span class="badge badge-unknown">Unknown</span>}
+  <span class="badge badge-unknown">{{ item().status | uppercase }}</span>}
   }
 
   @if (item().summary) {

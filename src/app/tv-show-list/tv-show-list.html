@@ -8,6 +8,7 @@
   } @else if (error()) {
     <p class="error">{{ error() }}</p>
   }@else {
+    <p>Showing {{ shows().length | number }} shows</p>
 <p>{{ summary() }}</p>
   @for (show of shows(); track show.id) {
   <app-tv-show-list-item [item] = "show" (opened)="onShowOpened($event)" (remove)="onRemove($event)" />
