@@ -1,4 +1,9 @@
-
+@if (errorService.message(); as msg) {
+  <div>
+    {{ msg }}
+    <button type="button" (click)="errorService.clear()">Dismiss</button>
+  </div>
+}
 
 <app-navbar />
 <router-outlet />

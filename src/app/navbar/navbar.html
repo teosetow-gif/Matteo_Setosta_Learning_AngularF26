@@ -4,4 +4,7 @@
   <button type="button" (click)="editGuard.toggle()">
     {{ editGuard.guardEnabled() ? ' Unlock Editing ' : ' Lock Editing '}}
   </button>
+  @if (loading.isLoading()) {
+    <span>Loading...</span>
+  }
 </nav>

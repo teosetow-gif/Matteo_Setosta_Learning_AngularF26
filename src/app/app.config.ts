@@ -2,8 +2,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import {provideRouter, withComponentInputBinding} from '@angular/router';
 import { routes } from './app.routes';
 import {TV_CONFIG} from './shared/config/tv-config';
-import { TvShowService} from './services/tv-show';
-import { MockTvService } from './services/MockTvService'
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {loadingInterceptor} from './interceptors/loading-interceptor';
+import {errorInterceptor} from './interceptors/error-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
       defaultGenre: 'all',
   },
 },
+    provideHttpClient(withInterceptors([loadingInterceptor, errorInterceptor])),
     /**to change back to the real data from [MOCK] Data, all you need to do is either fully
      * remove the UseClass provider or comment it out and it will switch  back to the real data
      */
