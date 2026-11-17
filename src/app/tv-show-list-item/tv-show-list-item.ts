@@ -3,9 +3,11 @@ import {TvShow} from '../shared/models/tvShow';
 import {TvShowEvent} from '../shared/models/tvShowEvent';
 import {RouterLink} from '@angular/router';
 import {DecimalPipe, SlicePipe, UpperCasePipe} from '@angular/common';
+import {StatusLabelPipe} from '../pipes/status-label-pipe';
+import {TruncatePipe} from '../pipes/truncate-pipe';
 
 @Component({
-  imports: [RouterLink, DecimalPipe, SlicePipe, UpperCasePipe],
+  imports: [RouterLink, DecimalPipe, SlicePipe, UpperCasePipe, StatusLabelPipe, TruncatePipe],
   selector: 'app-tv-show-list-item',
   styleUrl: './tv-show-list-item.css',
   templateUrl: './tv-show-list-item.html',

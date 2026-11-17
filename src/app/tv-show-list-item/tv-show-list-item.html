@@ -12,17 +12,17 @@
 
   @switch (item().status) {
   @case ('Running') {
-  <span class="badge badge-running">{{ item().status | uppercase }}</span>
+  <span class="badge badge-running">{{ item().status |statusLabel| uppercase }}</span>
   }
   @case ('Ended') {
-  <span class="badge badge-ended">{{ item().status | uppercase }}</span>
+  <span class="badge badge-ended">{{ item().status |statusLabel| uppercase }}</span>
   }
   @default {
-  <span class="badge badge-unknown">{{ item().status | uppercase }}</span>}
+  <span class="badge badge-unknown">{{ item().status |statusLabel| uppercase }}</span>}
   }
 
   @if (item().summary) {
-  <p class="summary">{{ item().summary }}</p>
+  <p class="summary">{{ item().summary | truncate:120 }}</p>
   } @else {
     <p class="summary-empty"> No summary available.</p>
   }

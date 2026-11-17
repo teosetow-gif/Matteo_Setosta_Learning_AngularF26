@@ -5,12 +5,12 @@
     <span> {{ g }}</span>
   }
     </p>
-  <p> Status: {{ s.status }}</p>
+  <p> Status: {{ s.status | statusLabel }}</p>
   @if ( s.rating.average !== null){}
   <p> Rating: {{ s.rating.average | number:'1.1-1'}}</p>
 }
   @if (s.summary) {
-    <p>{{ s.summary }}</p>
+    <p>{{ s.summary | truncate:300 }}</p>
   }
 
   <a [routerLink]="['/shows/edit', show()?.id]">Edit </a>
